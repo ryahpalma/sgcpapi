@@ -1,0 +1,14 @@
+{
+  "name": "sgcpapi",
+  "version": "1.0.2",
+  "description": "Find courses on SGCP API",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "scan": "node src/index.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "bin": "src/index.js"
+}
