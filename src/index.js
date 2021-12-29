@@ -681,14 +681,14 @@ validCities.forEach(function (item) {
           var validCourses = response.data.map(function (item) {
             return {
               courseName: item.nome,
-              workLoad: item.cargaHoraria,
-              Avaiable: item.imagem.hasInscricoesAbertas,
+              courseWorkload: item.cargaHoraria,
+              courseSubscription: item.imagem.hasInscricoesAbertas,
             }
           });
 
           validCourses.forEach(function (item) {
-            if (!item.Avaiable == false) {
-              console.log(`Curso: [${item.courseName}] com carga horária de ${item.workLoad} horas.}`);
+            if (!item.courseSubscription == false) {
+              console.log(`Curso: [${item.courseName}] com carga horária de ${item.courseWorkload} horas}`);
             }
             else {
               console.log(`Não foi encontrado inscrições abertas...`);
