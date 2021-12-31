@@ -1,6 +1,6 @@
 # SGCP API
 
-API padrão da programa Via Rápida, desenvolvida pelo Centro Paula Souza.
+API padrão do programa Via Rápida, desenvolvida pelo Centro Paula Souza.
 
 Este script irá listar os cursos disponíveis para todas as cidades.
 
@@ -18,8 +18,7 @@ yarn install
 yarn scan
 
 // retorna cursos disponíveis
-
 ```
 
 ## Licença
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](LICENSE)
