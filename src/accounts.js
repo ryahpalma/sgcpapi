@@ -10,12 +10,13 @@ const options = {
 
 console.log(`\n[SGCP API - Via Rápida Contas]`);
 console.log(`[Desenvolvido por @ryahpalma]`);
-console.log(`Busca máxima: [100 Contas]`);
+console.log(`[Busca máxima: 100 Contas]`);
 
 let userIdInitial = readline.question(`\nUsuario inicial: `);
 let userIdFinal = parseInt(userIdInitial) + 100
 let minAge = readline.question(`Idade minima: `);
 let maxAge = readline.question(`Idade maxima: `);
+let gender = readline.question(`Sexo F/M: `);
 
 console.log(`\nBuscando contas...\n`);
 
@@ -28,8 +29,8 @@ for (let userId = userIdInitial; userId <= userIdFinal; userId++) {
             const yearBirth = response.data.pessoaFisica.dataNascimento.slice(0, 4);
             const currentAge = Math.floor((new Date() - new Date(yearBirth).getTime()) / 3.15576e+10)
 
-            if (currentAge >= minAge && currentAge <= maxAge) {
-                console.log(`MÃE: ${response.data.nomeMae.toUpperCase()}\nCONTA: ${userId}\nNÚMERO: ${response.data.pessoaFisica.telefone.numero}\nIDADE: ${currentAge}\nSEXO: ${response.data.pessoaFisica.genero}\n\n`);
+            if (response.data.pessoaFisica.genero == gender && currentAge >= minAge && currentAge <= maxAge) {
+                console.log(`MÃE: ${response.data.nomeMae.toUpperCase()}\nWHATSAPP: wa.me/55${response.data.pessoaFisica.telefone.numero}\nCONTA: ${userId}\nNÚMERO: ${response.data.pessoaFisica.telefone.numero}\nIDADE: ${currentAge}\nSEXO: ${response.data.pessoaFisica.genero}\n\n`);
             }
         })
         .catch((error) => {
