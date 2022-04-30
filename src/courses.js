@@ -655,7 +655,7 @@ const cities = [
   { id: 9790, cityName: "Zacarias" },
 ];
 
-console.log(`\n\n[SGCP API - Via Rápida Cursos]`);
+console.log(`\n[SGCP API - Via Rápida Cursos]`);
 console.log(`[Desenvolvido por @ryahpalma]`);
 console.log(`\nLembre-se de verificar o e-mail toda terça-feira`);
 console.log(`\nBuscando cursos disponíveis...`);
