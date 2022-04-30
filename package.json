@@ -1,14 +1,14 @@
 {
   "name": "sgcpapi",
-  "version": "1.0.2",
-  "description": "Find courses on SGCP API",
-  "main": "src/index.js",
+  "version": "1.0.3",
+  "description": "Swiss army knife for SGCP API",
   "license": "MIT",
   "scripts": {
-    "scan": "node src/index.js"
+    "courses": "node src/courses.js",
+    "accounts": "node src/accounts.js"
   },
   "dependencies": {
-    "axios": "^0.21.1"
-  },
-  "bin": "src/index.js"
+    "axios": "^0.21.1",
+    "readline-sync": "^1.4.10"
+  }
 }
