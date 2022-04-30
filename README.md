@@ -2,8 +2,7 @@
 
 API padrão do programa Via Rápida, desenvolvida pelo Centro Paula Souza.
 
-Este script irá listar os cursos disponíveis para todas as cidades.
-
+Com este script você pode listar todos cursos e contas disponíveis
 ## Instalação
 
 Use o yarn para instalar as dependências
@@ -15,9 +14,14 @@ yarn install
 ## Utilização
 
 ```bash
-yarn scan
+yarn courses
 
 // retorna cursos disponíveis
+```
+```bash
+yarn accounts
+
+// retorna dados de contas disponíveis
 ```
 
 ## Licença
