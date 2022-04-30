@@ -687,12 +687,7 @@ validCities.forEach(function (item) {
           });
 
           validCourses.forEach(function (item) {
-            if (!item.courseSubscription == false) {
               console.log(`Curso: [${item.courseName}] com carga horária de ${item.courseWorkload} horas}`);
-            }
-            else {
-              console.log(`Não foi encontrado inscrições abertas...`);
-            }
           });
         }
       }
