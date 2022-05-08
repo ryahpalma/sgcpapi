@@ -660,36 +660,32 @@ console.log(`[Desenvolvido por @ryahpalma]`);
 console.log(`\nLembre-se de verificar o e-mail toda terça-feira`);
 console.log(`\nBuscando cursos disponíveis...`);
 
-var validCities = cities.map(function (item) {
+const validCities = cities.map(city => {
   return {
-    idCity: item.id,
-    cityName: item.cityName
+    id: city.id,
+    name: city.cityName
   }
 });
 
-validCities.forEach(function (item) {
+validCities.forEach(city => {
   axios
     .get(
-      'http://api.sgcp.sp.gov.br/api/v1/cursoQualificacao/turmasAbertas?idModalidade=1&idMunicipio=' + item.idCity, options
+      'http://api.sgcp.sp.gov.br/api/v1/cursoQualificacao/turmasAbertas?idModalidade=1&idMunicipio=' + city.id, options
     )
     .then((response) => {
-      for (key in response.data) {
-        if (response.data != null && key == 0) {
-
-          console.log(`\nBusca feita em ${item.cityName}`);
-
-          var validCourses = response.data.map(function (item) {
-            return {
-              courseName: item.nome,
-              courseWorkload: item.cargaHoraria,
-              courseSubscription: item.imagem.hasInscricoesAbertas,
-            }
-          });
-
-          validCourses.forEach(function (item) {
-              console.log(`Curso: [${item.courseName}] com carga horária de ${item.courseWorkload} horas}`);
-          });
+      const validCourses = response.data.map(course => {
+        return {
+          name: course.nome,
+          workload: course.cargaHoraria,
+          subscription: course.imagem.hasInscricoesAbertas,
         }
+      });
+
+      if (response.data.length > 1) {
+        console.log(`\nBusca feita em ${city.name}`);
+        validCourses.forEach((course) => {
+          console.log(`Curso: [${course.name}] com carga horária de ${course.workload} horas`);
+        });
       }
     })
     .catch((error) => {
