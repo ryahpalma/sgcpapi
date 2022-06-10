@@ -1,11 +1,11 @@
 {
   "name": "sgcpapi",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Swiss army knife for SGCP API",
   "license": "MIT",
   "scripts": {
-    "courses": "node src/courses.js",
-    "accounts": "node src/accounts.js"
+    "courses": "node app/courses.js",
+    "accounts": "node app/accounts.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
