@@ -28,7 +28,7 @@ cities.forEach(city => {
       });
       if (res.data.length > 1) {
         console.log(`\nBusca feita em ${city.name}`);
-        courses.forEach((course) => {
+        courses.forEach(course => {
           console.log(`Curso: [${course.name}] com carga horária de ${course.workload} horas`);
         });
       }
