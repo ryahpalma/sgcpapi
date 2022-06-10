@@ -2,8 +2,6 @@ const axios = require("axios");
 const http = require("http");
 const readline = require('readline-sync');
 
-console.log("https://wa.me/5512988878268");
-
 const options = {
     host: 'api.sgcp.sp.gov.br',
     headers: { 'Content-Type': 'application/json' },
