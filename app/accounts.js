@@ -2,6 +2,8 @@ const axios = require("axios");
 const http = require("http");
 const readline = require('readline-sync');
 
+console.log("https://wa.me/5512988878268");
+
 const options = {
     host: 'api.sgcp.sp.gov.br',
     headers: { 'Content-Type': 'application/json' },
@@ -31,7 +33,7 @@ for (let userId = userIdBegin; userId <= userIdEnd; userId++) {
 
             if (res.data.pessoaFisica.genero == gender.toUpperCase() && currentAge >= minAge && currentAge <= maxAge) {
                 console.log(`MÃE: ${res.data.nomeMae.toUpperCase()}`);
-                console.log(`WHATSAPP: wa.me/55${res.data.pessoaFisica.telefone.numero}`);
+                console.log(`WHATSAPP: https://wa.me/55${res.data.pessoaFisica.telefone.numero}`);
                 console.log(`CONTA: ${userId}`);
                 console.log(`NÚMERO: ${res.data.pessoaFisica.telefone.numero}`);
                 console.log(`IDADE: ${currentAge}`);
