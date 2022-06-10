@@ -10,30 +10,36 @@ const options = {
 
 console.log(`\n[SGCP API - Via Rápida Contas]`);
 console.log(`[Desenvolvido por @ryahpalma]`);
-console.log(`[Busca máxima: 100 Contas]`);
+console.log(`[Busca máxima: 200 Contas]`);
 
-let userIdInitial = readline.question(`\nUsuario inicial: `);
-let userIdFinal = parseInt(userIdInitial) + 100
-let minAge = readline.question(`Idade minima: `);
-let maxAge = readline.question(`Idade maxima: `);
-let gender = readline.question(`Sexo F/M: `);
+const userIdBegin = readline.question(`\nID inicial: `);
+const userIdEnd = parseInt(userIdBegin) + 200
+const minAge = readline.question(`Idade minima: `);
+const maxAge = readline.question(`Idade maxima: `);
+const gender = readline.question(`Sexo F/M/O: `);
 
 console.log(`\nBuscando contas...\n`);
 
-for (let userId = userIdInitial; userId <= userIdFinal; userId++) {
+for (let userId = userIdBegin; userId <= userIdEnd; userId++) {
     axios
         .get(
             'https://api.sgcp.sp.gov.br/api/v1/candidato/viaRapida/dadosCadastrais/' + userId, options
         )
-        .then((response) => {
-            const yearBirth = response.data.pessoaFisica.dataNascimento.slice(0, 4);
+        .then((res) => {
+            const yearBirth = res.data.pessoaFisica.dataNascimento.slice(0, 10);
             const currentAge = Math.floor((new Date() - new Date(yearBirth).getTime()) / 3.15576e+10)
 
-            if (response.data.pessoaFisica.genero == gender && currentAge >= minAge && currentAge <= maxAge) {
-                console.log(`MÃE: ${response.data.nomeMae.toUpperCase()}\nWHATSAPP: wa.me/55${response.data.pessoaFisica.telefone.numero}\nCONTA: ${userId}\nNÚMERO: ${response.data.pessoaFisica.telefone.numero}\nIDADE: ${currentAge}\nSEXO: ${response.data.pessoaFisica.genero}\n\n`);
+            if (res.data.pessoaFisica.genero == gender.toUpperCase() && currentAge >= minAge && currentAge <= maxAge) {
+                console.log(`MÃE: ${res.data.nomeMae.toUpperCase()}`);
+                console.log(`WHATSAPP: wa.me/55${res.data.pessoaFisica.telefone.numero}`);
+                console.log(`CONTA: ${userId}`);
+                console.log(`NÚMERO: ${res.data.pessoaFisica.telefone.numero}`);
+                console.log(`IDADE: ${currentAge}`);
+                console.log(`NASCIMENTO: ${res.data.pessoaFisica.dataNascimento.slice(0, 10)}`);
+                console.log(`SEXO: ${res.data.pessoaFisica.genero}\n`);
             }
         })
-        .catch((error) => {
-            return;
+        .catch((err) => {
+            return err;
         });
 };
