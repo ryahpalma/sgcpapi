@@ -35,7 +35,7 @@ for (let userId = userIdBegin; userId <= userIdEnd; userId++) {
                 console.log(`CONTA: ${userId}`);
                 console.log(`NÚMERO: ${res.data.pessoaFisica.telefone.numero}`);
                 console.log(`IDADE: ${currentAge}`);
-                console.log(`NASCIMENTO: ${res.data.pessoaFisica.dataNascimento.slice(0, 10)}`);
+                console.log(`NASCIMENTO: ${yearBirth}`);
                 console.log(`SEXO: ${res.data.pessoaFisica.genero}\n`);
             }
         })
